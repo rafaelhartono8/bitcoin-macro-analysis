@@ -1,11 +1,11 @@
-# 📈 Bitcoin & Macroeconomic Correlation Analysis
+# Bitcoin & Macroeconomic Correlation Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
 
 > **Analisis Historis:** Studi kuantitatif mengenai pengaruh indikator makroekonomi (Inflasi, Suku Bunga, GDP) dan pasar global terhadap pergerakan harga aset kripto.
 
-## 📋 Daftar Isi
+## Daftar Isi
 - [Tentang Proyek](#-tentang-proyek)
 - [Metodologi & Flowchart](#%EF%B8%8F-metodologi--flowchart)
 - [Kamus Data](#-kamus-data)
@@ -16,10 +16,10 @@
 
 ---
 
-## 📖 Tentang Proyek
+## Tentang Proyek
 Proyek ini menerapkan pipeline ETL (Extract, Transform, Load) sederhana untuk mengumpulkan data ekonomi historis dari berbagai sumber API. Tujuannya adalah membentuk dataset terpadu yang memungkinkan analisis korelasi antara aset berisiko tinggi (Bitcoin/Altcoins) dengan indikator ekonomi makro Amerika Serikat dan pasar tradisional.
 
-## ⚙️ Metodologi & Flowchart
+## ️ Metodologi & Flowchart
 Berikut adalah diagram alir pipeline data yang digunakan dalam proyek ini, mulai dari ekstraksi hingga visualisasi:
 
 ![Flowchart Pipeline Project](FLOWCHART_BTC_MACRO.png)
@@ -30,7 +30,7 @@ Berikut adalah diagram alir pipeline data yang digunakan dalam proyek ini, mulai
 3.  **Resampling:** Menyamakan frekuensi data menjadi tiga timeframe (Harian, Bulanan, Kuartalan) untuk memastikan analisis korelasi yang valid.
 4.  **Visualization:** Pembuatan Heatmap Korelasi dan plot Time Series untuk interpretasi data.
 
-## 🗃 Kamus Data
+## Kamus Data
 Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan sumbernya:
 
 ### 1. Indikator Makroekonomi (via FRED St. Louis)
@@ -69,13 +69,13 @@ Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan su
 | **ADA** | Cardano | Layer 1 Blockchain |
 | **XLM** | Stellar | Payment Network |
 
-## 🛠 Teknologi
+## Teknologi
 * **Language:** Python 3.8+
 * **Data Fetching:** `fredapi`, `yfinance`, `python-binance`
 * **Data Manipulation:** `pandas`, `numpy`
 * **Visualization:** `seaborn`, `matplotlib`
 
-## 🚀 Cara Penggunaan
+## Cara Penggunaan
 
 1.  **Clone repositori:**
     ```bash
@@ -91,7 +91,7 @@ Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan su
 4.  **Jalankan Analisis:**
     Buka file `bitcoin-macro-analysis.ipynb` dan jalankan sel secara berurutan untuk menarik data historis terbaru dan menghasilkan visualisasi.
 
-## 📉 Hasil Analisis
+## Hasil Analisis
 
 ### 1. Matriks Korelasi (Correlation Heatmap)
 Visualisasi hubungan antar variabel. Warna **merah/gelap** menunjukkan korelasi positif kuat, sedangkan **biru/terang** menunjukkan korelasi negatif.
@@ -114,6 +114,6 @@ Grafik pergerakan harga aset dan indikator makro dari waktu ke waktu untuk melih
 > * **Bitcoin vs DXY (Dolar):** Konsisten menunjukkan korelasi negatif (ketika Dolar menguat, Bitcoin cenderung melemah).
 > * **Inflasi & Suku Bunga:** Dampak terlihat lebih signifikan pada data Kuartalan, sejalan dengan siklus kebijakan moneter The Fed.
 
-## 👥 Kontributor
+## Kontributor
 * **Rafael Hartono** (166)
 * **Nabil Putra Yuan** (126)
