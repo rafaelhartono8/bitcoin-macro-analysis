@@ -58,7 +58,7 @@ Project ini dibangun menggunakan Python dengan library berikut:
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/username-anda/nama-repo.git](https://github.com/username-anda/nama-repo.git)
+    git clone [https://github.com/username-anda/nama-repo.git]
     ```
 2.  **Install dependencies:**
     ```bash
@@ -88,4 +88,4 @@ Berikut adalah contoh matriks korelasi yang dihasilkan oleh proyek ini:
 * **Nabil Putra Yuan** (126)
 
 ---
-*Dibuat untuk memenuhi tugas [Nama Mata Kuliah/Organisasi] atau sebagai Proyek Portofolio Data Science.*
+*Dibuat untuk memenuhi UAS Data Wrangling Universitas Negeri Surabaya.*
