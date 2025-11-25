@@ -1,91 +1,94 @@
 # bitcoin-macro-analysis
-Python ETL pipeline integrating FRED (US Macro), Yahoo Finance (Global Markets), and Binance data to analyze historical correlations and Bitcoin price drivers
-
+Python ETL pipeline integrating FRED (US Macro), Yahoo Finance (Global Markets), and Binance data to analyze historical correlations and Bitcoin price drivers.
 
 # 📈 Bitcoin & Macroeconomic Correlation Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
-![Status](https://img.shields.io/badge/Status-Active-green)
 
-> Analisis mendalam mengenai pengaruh indikator makroekonomi (Inflasi, Suku Bunga, GDP) dan data pasar global terhadap pergerakan harga Bitcoin.
+> **Analisis Historis:** Studi kuantitatif mengenai pengaruh indikator makroekonomi (Inflasi, Suku Bunga, GDP) dan pasar global terhadap pergerakan harga aset kripto.
 
 ## 📋 Daftar Isi
 - [Tentang Proyek](#-tentang-proyek)
-- [Fitur Utama](#-fitur-utama)
-- [Data yang Digunakan](#-data-yang-digunakan)
-- [Teknologi & Library](#-teknologi--library)
-- [Cara Menjalankan](#-cara-menjalankan)
-- [Hasil Analisis](#-hasil-analisis)
+- [Metodologi](#-metodologi)
+- [Kamus Data](#-kamus-data)
+- [Teknologi](#-teknologi)
+- [Cara Penggunaan](#-cara-penggunaan)
 - [Kontributor](#-kontributor)
 
 ## 📖 Tentang Proyek
-Proyek ini bertujuan untuk menganalisis korelasi antara pergerakan harga aset kripto (terutama Bitcoin) dengan berbagai indikator ekonomi global. Dengan menggunakan data historis, kita dapat melihat bagaimana faktor eksternal seperti kebijakan The Fed atau harga komoditas mempengaruhi pasar kripto.
+Proyek ini menerapkan pipeline ETL (Extract, Transform, Load) sederhana untuk mengumpulkan data ekonomi historis dari berbagai sumber API. Tujuannya adalah membentuk dataset terpadu yang memungkinkan analisis korelasi antara aset berisiko tinggi (Bitcoin/Altcoins) dengan indikator ekonomi makro Amerika Serikat dan pasar tradisional.
 
-## ✨ Fitur Utama
-- **Otomatisasi Data Fetching:** Mengambil data terbaru secara otomatis menggunakan API.
-- **Multi-Source Analysis:** Menggabungkan data dari:
-  - **FRED (Federal Reserve Economic Data)** untuk data ekonomi AS.
-  - **Yahoo Finance** untuk pasar saham dan komoditas.
-  - **Binance** untuk data harga mata uang kripto.
-- **Timeframe Structuring:** Resampling data ke format Harian, Bulanan, dan Kuartalan untuk analisis yang lebih akurat.
-- **Correlation Visualization:** Heatmap korelasi untuk melihat hubungan antar variabel.
+## ⚙️ Metodologi
+1.  **Data Extraction:** Mengambil data time-series historis melalui API (FRED, Yahoo Finance, Binance).
+2.  **Preprocessing:** Pembersihan data `NaN` menggunakan metode *forward-fill/backward-fill* dan penyesuaian format tanggal.
+3.  **Resampling:** Menyamakan frekuensi data (Harian, Bulanan, Kuartalan) untuk analisis korelasi yang valid.
+4.  **Visualization:** Pembuatan Heatmap Korelasi dan plot Time Series.
 
-## 📊 Data yang Digunakan
-Analisis ini mencakup variabel-variabel berikut:
+## 🗃 Kamus Data
+Berikut adalah variabel-variabel yang digunakan dalam analisis ini:
 
-1.  **Indikator Makro (via FRED):**
-    * Suku Bunga AS (FEDFUNDS)
-    * Inflasi (CPIAUCSL)
-    * Pengangguran (UNRATE)
-    * GDP AS, M2 Money Supply, dll.
-2.  **Pasar Tradisional (via Yahoo Finance):**
-    * Emas (GC=F), Perak (SI=F), Minyak (CL=F)
-    * Indeks Saham: S&P 500, Dow Jones, Nasdaq
-    * Kurs: USD/IDR
-3.  **Pasar Kripto (via Binance):**
-    * BTC, ETH, BNB, SOL, DOGE, ADA, XLM
+### 1. Indikator Makroekonomi (via FRED St. Louis)
+| Ticker | Variabel | Freq Asli | Deskripsi |
+| :--- | :--- | :--- | :--- |
+| **DTWEXBGS** | Indeks Dolar | Harian | Indeks kekuatan USD terhadap mata uang global. |
+| **FEDFUNDS** | Suku Bunga AS | Bulanan | Suku bunga acuan The Fed (Benchmark Interest Rate). |
+| **CPIAUCSL** | Inflasi (CPI) | Bulanan | Indeks Harga Konsumen untuk mengukur inflasi. |
+| **UNRATE** | Pengangguran | Bulanan | Persentase tingkat pengangguran di AS. |
+| **PPIACO** | PPI | Bulanan | Indeks Harga Produsen (biaya produksi). |
+| **RSXFS** | Retail Sales | Bulanan | Total penjualan ritel dan layanan makanan. |
+| **INDPRO** | Industrial Prod. | Bulanan | Output total sektor industri. |
+| **HOUST** | Housing Starts | Bulanan | Proyek pembangunan rumah baru. |
+| **M2SL** | Money Supply M2 | Bulanan | Jumlah uang beredar (likuiditas ekonomi). |
+| **GDP** | GDP AS | Kuartalan | Produk Domestik Bruto (Pertumbuhan Ekonomi). |
 
-## 🛠 Teknologi & Library
-Project ini dibangun menggunakan Python dengan library berikut:
-* `pandas` & `numpy`: Manipulasi data.
-* `fredapi`: Mengakses database ekonomi FRED.
-* `yfinance`: Data pasar saham/komoditas.
-* `python-binance`: Data historis kripto.
-* `seaborn` & `matplotlib`: Visualisasi data.
+### 2. Pasar Tradisional (via Yahoo Finance)
+| Ticker | Variabel | Kategori | Deskripsi |
+| :--- | :--- | :--- | :--- |
+| **GC=F** | Emas (Gold) | Komoditas | Aset Safe Haven. |
+| **SI=F** | Perak (Silver) | Komoditas | Logam mulia industri & investasi. |
+| **CL=F** | Minyak WTI | Komoditas | Biaya energi (Energy Costs). |
+| **^GSPC** | S&P 500 | Saham | Tolak ukur pasar saham AS. |
+| **^DJI** | Dow Jones | Saham | Indeks 30 industri utama AS. |
+| **^IXIC** | Nasdaq | Saham | Indeks saham sektor teknologi (Risk-on). |
+| **USDIDR=X**| USD/IDR | Forex | Nilai tukar Rupiah terhadap Dolar. |
 
-## 🚀 Cara Menjalankan
+### 3. Aset Kripto (via Binance)
+| Ticker | Aset | Kategori |
+| :--- | :--- | :--- |
+| **BTC** | Bitcoin | Market Mover / Store of Value |
+| **ETH** | Ethereum | Smart Contract Platform |
+| **BNB** | BNB | Exchange Utility |
+| **SOL** | Solana | Layer 1 Blockchain |
+| **DOGE** | Dogecoin | Meme Coin |
+| **ADA** | Cardano | Layer 1 Blockchain |
+| **XLM** | Stellar | Payment Network |
 
-1.  **Clone repositori ini:**
+## 🛠 Teknologi
+* **Language:** Python 3.8+
+* **Data Fetching:** `fredapi`, `yfinance`, `python-binance`
+* **Data Manipulation:** `pandas`, `numpy`
+* **Visualization:** `seaborn`, `matplotlib`
+
+## 🚀 Cara Penggunaan
+
+1.  **Clone repositori:**
     ```bash
-    git clone [https://github.com/username-anda/nama-repo.git]
+    git clone [https://github.com/rafaelhartono8/bitcoin-macro-analysis.git](https://github.com/rafaelhartono8/bitcoin-macro-analysis.git)
     ```
-2.  **Install dependencies:**
+2.  **Install library:**
     ```bash
     pip install fredapi python-binance yfinance pandas seaborn matplotlib
     ```
-3.  **Konfigurasi API Key:**
-    Dapatkan API Key dari [FRED St. Louis Fed](https://fredaccount.stlouisfed.org/apikeys).
-    Buka notebook dan ganti bagian berikut:
-    ```python
-    FRED_API_KEY = "MASUKKAN_API_KEY_ANDA_DISINI"
-    ```
-4.  **Jalankan Notebook:**
-    Buka `bitcoin-macro-analysis.ipynb` dan jalankan semua cell.
-
-## 📉 Hasil Analisis (Preview)
-Berikut adalah contoh matriks korelasi yang dihasilkan oleh proyek ini:
-
-*(Saran: Ambil screenshot dari output "Correlation Matrix" di notebook Anda dan tempel gambarnya di sini)*
-![Correlation Heatmap](link-ke-gambar-heatmap-anda.png)
-
-> **Insight Singkat:**
-> * Bitcoin menunjukkan korelasi positif kuat dengan... (isi berdasarkan hasil Anda)
-> * Suku bunga The Fed memiliki korelasi negatif dengan... (isi berdasarkan hasil Anda)
+3.  **Setup API Key:**
+    * Dapatkan Key gratis di [FRED St. Louis](https://fredaccount.stlouisfed.org/apikeys).
+    * Masukkan key Anda ke dalam variabel `FRED_API_KEY` di notebook.
+4.  **Jalankan Analisis:**
+    Buka file `bitcoin-macro-analysis.ipynb` dan jalankan sel secara berurutan untuk menarik data historis terbaru dan menghasilkan visualisasi.
 
 ## 👥 Kontributor
 * **Rafael Hartono** (166)
 * **Nabil Putra Yuan** (126)
 
 ---
-*Dibuat untuk memenuhi UAS Data Wrangling Universitas Negeri Surabaya.*
+*Dibuat untuk memenuhi Tugas UAS Data Wrangling Universitas Negeri Surabaya.*
