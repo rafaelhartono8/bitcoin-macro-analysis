@@ -92,7 +92,7 @@ Berikut adalah visualisasi Heatmap Korelasi dalam tiga timeframe berbeda. Warna 
 
 | 1. Korelasi Harian (Daily) | 2. Korelasi Bulanan (Monthly) | 3. Korelasi Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
-| ![Daily Heatmap](./CORRELATION MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](./CORRELATION MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION MATRIX/correlation_matrix_quarterly.png) |
+| ![Daily Heatmap](CORRELATION%20MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](CORRELATION%20MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION%20MATRIX/correlation_matrix_quarterly.png) |
 | *Fokus pada volatilitas jangka pendek.* | *Menunjukkan tren makro yang lebih stabil.* | *Hubungan jangka panjang dengan GDP/Makro.* |
 
 > **Insight Utama:**
@@ -103,6 +103,3 @@ Berikut adalah visualisasi Heatmap Korelasi dalam tiga timeframe berbeda. Warna 
 ## 👥 Kontributor
 * **Rafael Hartono** (166)
 * **Nabil Putra Yuan** (126)
-
----
-*Dibuat untuk memenuhi Tugas UAS Data Wrangling Universitas Negeri Surabaya.*
