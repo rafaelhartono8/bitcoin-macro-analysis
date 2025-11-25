@@ -79,7 +79,7 @@ Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan su
 
 1.  **Clone repositori:**
     ```bash
-    git clone [https://github.com/rafaelhartono8/bitcoin-macro-analysis.git](https://github.com/rafaelhartono8/bitcoin-macro-analysis.git)
+    git clone https://github.com/rafaelhartono8/bitcoin-macro-analysis.git
     ```
 2.  **Install library:**
     ```bash
