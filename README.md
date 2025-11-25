@@ -86,19 +86,28 @@ Berikut adalah variabel-variabel yang digunakan dalam analisis ini:
 4.  **Jalankan Analisis:**
     Buka file `bitcoin-macro-analysis.ipynb` dan jalankan sel secara berurutan untuk menarik data historis terbaru dan menghasilkan visualisasi.
 
-## 📉 Hasil Analisis (Preview)
+## 📉 Hasil Analisis
 
-Berikut adalah visualisasi Heatmap Korelasi dalam tiga timeframe berbeda. Warna **merah/gelap** menunjukkan korelasi positif kuat, sedangkan **biru/terang** menunjukkan korelasi negatif.
+### 1. Matriks Korelasi (Correlation Heatmap)
+Visualisasi hubungan antar variabel. Warna **merah/gelap** menunjukkan korelasi positif kuat, sedangkan **biru/terang** menunjukkan korelasi negatif.
 
 | 1. Korelasi Harian (Daily) | 2. Korelasi Bulanan (Monthly) | 3. Korelasi Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
 | ![Daily Heatmap](CORRELATION%20MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](CORRELATION%20MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION%20MATRIX/correlation_matrix_quarterly.png) |
 | *Fokus pada volatilitas jangka pendek.* | *Menunjukkan tren makro yang lebih stabil.* | *Hubungan jangka panjang dengan GDP/Makro.* |
 
+### 2. Tren Pergerakan Harga (Time Series)
+Grafik pergerakan harga aset dan indikator makro dari waktu ke waktu untuk melihat tren historis.
+
+| 1. Tren Harian (Daily) | 2. Tren Bulanan (Monthly) | 3. Tren Kuartalan (Quarterly) |
+| :---: | :---: | :---: |
+| ![Daily TS](MARKET%20PRICE%20IN%20TIME%20SERIES/daily_time_series.png) | ![Monthly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/month_time_series.png) | ![Quarterly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/Q_time_series.png) |
+| *Fluktuasi harga detail harian.* | *Smoothed trend untuk analisis bulanan.* | *Tren jangka panjang & siklus ekonomi.* |
+
 > **Insight Utama:**
 > * **Bitcoin vs Tech Stocks:** Terlihat korelasi positif yang semakin menguat pada timeframe Bulanan dibandingkan Harian.
 > * **Bitcoin vs DXY (Dolar):** Konsisten menunjukkan korelasi negatif (ketika Dolar menguat, Bitcoin cenderung melemah).
-> * **Inflasi & Suku Bunga:** Dampak terlihat lebih signifikan pada data Kuartalan.
+> * **Inflasi & Suku Bunga:** Dampak terlihat lebih signifikan pada data Kuartalan, sejalan dengan siklus kebijakan moneter The Fed.
 
 ## 👥 Kontributor
 * **Rafael Hartono** (166)
