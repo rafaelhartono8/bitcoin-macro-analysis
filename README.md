@@ -86,6 +86,20 @@ Berikut adalah variabel-variabel yang digunakan dalam analisis ini:
 4.  **Jalankan Analisis:**
     Buka file `bitcoin-macro-analysis.ipynb` dan jalankan sel secara berurutan untuk menarik data historis terbaru dan menghasilkan visualisasi.
 
+## 📉 Hasil Analisis (Preview)
+
+Berikut adalah visualisasi Heatmap Korelasi dalam tiga timeframe berbeda. Warna **merah/gelap** menunjukkan korelasi positif kuat, sedangkan **biru/terang** menunjukkan korelasi negatif.
+
+| 1. Korelasi Harian (Daily) | 2. Korelasi Bulanan (Monthly) | 3. Korelasi Kuartalan (Quarterly) |
+| :---: | :---: | :---: |
+| ![Daily Heatmap](./CORRELATION MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](./CORRELATION MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION MATRIX/correlation_matrix_quarterly.png) |
+| *Fokus pada volatilitas jangka pendek.* | *Menunjukkan tren makro yang lebih stabil.* | *Hubungan jangka panjang dengan GDP/Makro.* |
+
+> **Insight Utama:**
+> * **Bitcoin vs Tech Stocks:** Terlihat korelasi positif yang semakin menguat pada timeframe Bulanan dibandingkan Harian.
+> * **Bitcoin vs DXY (Dolar):** Konsisten menunjukkan korelasi negatif (ketika Dolar menguat, Bitcoin cenderung melemah).
+> * **Inflasi & Suku Bunga:** Dampak terlihat lebih signifikan pada data Kuartalan.
+
 ## 👥 Kontributor
 * **Rafael Hartono** (166)
 * **Nabil Putra Yuan** (126)
