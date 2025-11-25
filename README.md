@@ -99,7 +99,7 @@ Visualisasi hubungan antar variabel. Warna **merah/gelap** menunjukkan korelasi 
 | 1. Korelasi Harian (Daily) | 2. Korelasi Bulanan (Monthly) | 3. Korelasi Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
 | ![Daily Heatmap](CORRELATION%20MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](CORRELATION%20MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION%20MATRIX/correlation_matrix_quarterly.png) |
-| *Fokus pada volatilitas jangka pendek.* | *Menunjukkan tren makro yang lebih stabil.* | *Hubungan jangka panjang dengan GDP/Makro.* |
+| *Korelasi positif tertinggi pada ETH 0.80 & Korelasi negatif tertinggi pada Index Dolar -0.16.* | *Korelasi positif tertinggi pada ETH 0.79 & Korelasi negatif tertinggi pada Index Dolar -0.33.* | *Korelasi positif tertinggi pada ETH 0.92 & Korelasi negatif tertinggi pada USD to IDR -0.42.* |
 
 ### 2. Tren Pergerakan Harga (Time Series)
 Grafik pergerakan harga aset dan indikator makro dari waktu ke waktu untuk melihat tren historis.
@@ -107,12 +107,12 @@ Grafik pergerakan harga aset dan indikator makro dari waktu ke waktu untuk melih
 | 1. Tren Harian (Daily) | 2. Tren Bulanan (Monthly) | 3. Tren Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
 | ![Daily TS](MARKET%20PRICE%20IN%20TIME%20SERIES/daily_time_series.png) | ![Monthly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/month_time_series.png) | ![Quarterly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/Q_time_series.png) |
-| *Fluktuasi harga detail harian.* | *Smoothed trend untuk analisis bulanan.* | *Tren jangka panjang & siklus ekonomi.* |
+| *Grafik memiliki banyak noise.* | *Grafik lebih bersih karena konversi tanggal ke bulan dengan mean.* | *Pertumbuhan ekonomi tiap Q terlihat lebih jelas.* |
 
 > **Insight Utama:**
-> * **Bitcoin vs Tech Stocks:** Terlihat korelasi positif yang semakin menguat pada timeframe Bulanan dibandingkan Harian.
-> * **Bitcoin vs DXY (Dolar):** Konsisten menunjukkan korelasi negatif (ketika Dolar menguat, Bitcoin cenderung melemah).
-> * **Inflasi & Suku Bunga:** Dampak terlihat lebih signifikan pada data Kuartalan, sejalan dengan siklus kebijakan moneter The Fed.
+> * **Bitcoin vs Nasdaq:** Terlihat korelasi positif yang semakin menguat pada timeframe Bulanan dibandingkan Harian.
+> * **Bitcoin vs Suku Bunga AS:** Konsisten menunjukkan korelasi negatif ketika Dolar menguat, Bitcoin cenderung melemah.
+> * **Bitcoin & Rupiah:** Dampak terlihat lebih signifikan pada data Kuartalan, memiliki korelasi negatif yang tertinggi. Jadi ketika Bitcoin NAIK mata uang Rupiah akan TURUN. Begitu juga sebaliknya, Apabila Bitcoin TURUN, maka Rupiah akan NAIK
 
 ## Kontributor
 * **Rafael Hartono** (166)
