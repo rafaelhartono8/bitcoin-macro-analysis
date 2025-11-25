@@ -20,7 +20,7 @@
 Proyek ini menerapkan pipeline ETL (Extract, Transform, Load) sederhana untuk mengumpulkan data ekonomi historis dari berbagai sumber API. Tujuannya adalah membentuk dataset terpadu yang memungkinkan analisis korelasi antara aset berisiko tinggi (Bitcoin/Altcoins) dengan indikator ekonomi makro Amerika Serikat dan pasar tradisional.
 
 ## ️ Metodologi & Flowchart
-Berikut adalah diagram alir pipeline data yang digunakan dalam proyek ini, mulai dari ekstraksi hingga visualisasi:
+Berikut adalah diagram alur dalam proyek ini, mulai dari ekstraksi hingga visualisasi:
 
 ![Flowchart Pipeline Project](FLOWCHART_BTC_MACRO.png)
 
