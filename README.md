@@ -1,6 +1,3 @@
-# bitcoin-macro-analysis
-Python ETL pipeline integrating FRED (US Macro), Yahoo Finance (Global Markets), and Binance data to analyze historical correlations and Bitcoin price drivers.
-
 # 📈 Bitcoin & Macroeconomic Correlation Analysis
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
@@ -10,23 +7,31 @@ Python ETL pipeline integrating FRED (US Macro), Yahoo Finance (Global Markets),
 
 ## 📋 Daftar Isi
 - [Tentang Proyek](#-tentang-proyek)
-- [Metodologi](#-metodologi)
+- [Metodologi & Flowchart](#%EF%B8%8F-metodologi--flowchart)
 - [Kamus Data](#-kamus-data)
 - [Teknologi](#-teknologi)
 - [Cara Penggunaan](#-cara-penggunaan)
+- [Hasil Analisis](#-hasil-analisis)
 - [Kontributor](#-kontributor)
+
+---
 
 ## 📖 Tentang Proyek
 Proyek ini menerapkan pipeline ETL (Extract, Transform, Load) sederhana untuk mengumpulkan data ekonomi historis dari berbagai sumber API. Tujuannya adalah membentuk dataset terpadu yang memungkinkan analisis korelasi antara aset berisiko tinggi (Bitcoin/Altcoins) dengan indikator ekonomi makro Amerika Serikat dan pasar tradisional.
 
-## ⚙️ Metodologi
-1.  **Data Extraction:** Mengambil data time-series historis melalui API (FRED, Yahoo Finance, Binance).
-2.  **Preprocessing:** Pembersihan data `NaN` menggunakan metode *forward-fill/backward-fill* dan penyesuaian format tanggal.
-3.  **Resampling:** Menyamakan frekuensi data (Harian, Bulanan, Kuartalan) untuk analisis korelasi yang valid.
-4.  **Visualization:** Pembuatan Heatmap Korelasi dan plot Time Series.
+## ⚙️ Metodologi & Flowchart
+Berikut adalah diagram alir pipeline data yang digunakan dalam proyek ini, mulai dari ekstraksi hingga visualisasi:
+
+![Flowchart Pipeline Project](FLOWCHART_BTC_MACRO.png)
+
+**Penjelasan Langkah:**
+1.  **Data Extraction:** Mengambil data time-series historis melalui API (FRED St. Louis, Yahoo Finance, dan Binance).
+2.  **Preprocessing:** Pembersihan data `NaN` menggunakan metode *forward-fill/backward-fill* dan penyesuaian format tanggal agar seragam.
+3.  **Resampling:** Menyamakan frekuensi data menjadi tiga timeframe (Harian, Bulanan, Kuartalan) untuk memastikan analisis korelasi yang valid.
+4.  **Visualization:** Pembuatan Heatmap Korelasi dan plot Time Series untuk interpretasi data.
 
 ## 🗃 Kamus Data
-Berikut adalah variabel-variabel yang digunakan dalam analisis ini:
+Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan sumbernya:
 
 ### 1. Indikator Makroekonomi (via FRED St. Louis)
 | Ticker | Variabel | Freq Asli | Deskripsi |
