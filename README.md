@@ -22,13 +22,13 @@ Proyek ini menerapkan pipeline ETL (Extract, Transform, Load) sederhana untuk me
 ## ️ Metodologi & Flowchart
 Berikut adalah diagram alur dalam proyek ini, mulai dari ekstraksi hingga visualisasi:
 
-![Flowchart Pipeline Project](FLOWCHART_BTC_MACRO.png)
+![Flowchart Pipeline Project](FLOWCHART.png)
 
 **Penjelasan Langkah:**
 1.  **Data Extraction:** Mengambil data time-series historis melalui API (FRED St. Louis, Yahoo Finance, dan Binance).
 2.  **Preprocessing:** Pembersihan data `NaN` menggunakan metode *forward-fill/backward-fill* dan penyesuaian format tanggal agar seragam.
 3.  **Resampling:** Menyamakan frekuensi data menjadi tiga timeframe (Harian, Bulanan, Kuartalan) untuk memastikan analisis korelasi yang valid.
-4.  **Visualization:** Pembuatan Heatmap Korelasi dan plot Time Series untuk interpretasi data.
+4.  **Visualization:** Pembuatan Heatmap Korelasi, Time Series, dan Pair Plot untuk interpretasi data.
 
 ## Kamus Data
 Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan sumbernya:
@@ -79,7 +79,7 @@ Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan su
 
 1.  **Clone repositori:**
     ```bash
-    git clone https://github.com/rafaelhartono8/bitcoin-macro-analysis.git
+    git clone (https://github.com/rafaelhartono8/bitcoin-macro-analysis.git)
     ```
 2.  **Install library:**
     ```bash
@@ -89,30 +89,50 @@ Variabel-variabel yang digunakan dalam analisis ini dikelompokkan berdasarkan su
     * Dapatkan Key gratis di [FRED St. Louis](https://fredaccount.stlouisfed.org/apikeys).
     * Masukkan key Anda ke dalam variabel `FRED_API_KEY` di notebook.
 4.  **Jalankan Analisis:**
-    Buka file `bitcoin-macro-analysis.ipynb` dan jalankan sel secara berurutan untuk menarik data historis terbaru dan menghasilkan visualisasi.
+    Buka file `btc_macro_analysis.ipynb` dan jalankan sel secara berurutan.
 
 ## Hasil Analisis
 
-### 1. Matriks Korelasi (Correlation Heatmap)
-Visualisasi hubungan antar variabel. Warna **merah/gelap** menunjukkan korelasi positif kuat, sedangkan **biru/terang** menunjukkan korelasi negatif.
+Berikut adalah perbandingan visualisasi data berdasarkan frekuensi waktu (Harian vs Bulanan vs Kuartalan).
 
-| 1. Korelasi Harian (Daily) | 2. Korelasi Bulanan (Monthly) | 3. Korelasi Kuartalan (Quarterly) |
+### 1. Matriks Korelasi (Correlation Heatmap)
+Mengukur kekuatan hubungan linear antar variabel.
+
+| Harian (Daily) | Bulanan (Monthly) | Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
-| ![Daily Heatmap](CORRELATION%20MATRIX/correlation_matrix_daily.png) | ![Monthly Heatmap](CORRELATION%20MATRIX/correlation_matrix_monthly.png) | ![Quarterly Heatmap](CORRELATION%20MATRIX/correlation_matrix_quarterly.png) |
-| *Korelasi positif tertinggi pada ETH 0.80 & Korelasi negatif tertinggi pada Index Dolar -0.16.* | *Korelasi positif tertinggi pada ETH 0.79 & Korelasi negatif tertinggi pada Index Dolar -0.33.* | *Korelasi positif tertinggi pada ETH 0.92 & Korelasi negatif tertinggi pada USD to IDR -0.42.* |
+| ![Daily Corr](correlation_matrix/correlation_matrix_daily.png) | ![Monthly Corr](correlation_matrix/correlation_matrix_monthly.png) | ![Quarterly Corr](correlation_matrix/correlation_matrix_quarterly.png) |
+| *Banyak noise, korelasi lemah.* | *Pola mulai terbentuk.* | *Korelasi makroekonomi terlihat paling jelas.* |
+
+---
 
 ### 2. Tren Pergerakan Harga (Time Series)
-Grafik pergerakan harga aset dan indikator makro dari waktu ke waktu untuk melihat tren historis.
+Melihat tren historis harga dan indikator ekonomi.
 
-| 1. Tren Harian (Daily) | 2. Tren Bulanan (Monthly) | 3. Tren Kuartalan (Quarterly) |
+| Harian (Daily) | Bulanan (Monthly) | Kuartalan (Quarterly) |
 | :---: | :---: | :---: |
-| ![Daily TS](MARKET%20PRICE%20IN%20TIME%20SERIES/daily_time_series.png) | ![Monthly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/month_time_series.png) | ![Quarterly TS](MARKET%20PRICE%20IN%20TIME%20SERIES/Q_time_series.png) |
-| *Grafik memiliki banyak noise.* | *Grafik lebih bersih karena konversi tanggal ke bulan dengan mean.* | *Pertumbuhan ekonomi tiap Q terlihat lebih jelas.* |
+| ![Daily TS](time_series/daily_time_series.png) | ![Monthly TS](time_series/month_time_series.png) | ![Quarterly TS](time_series/Q_time_series.png) |
+
+---
+
+### 3. Distribusi & Hubungan (Pair Plot)
+Melihat sebaran data dan hubungan antar variabel utama.
+
+| Harian (Daily) | Bulanan (Monthly) | Kuartalan (Quarterly) |
+| :---: | :---: | :---: |
+| ![Daily Pair](pair_plot/pair_plot_harian.png) | ![Monthly Pair](pair_plot/pair_plot_bulanan.png) | ![Quarterly Pair](pair_plot/pair_plot_kuartal.png) |
+
+---
+
+### 4. Volatilitas Perubahan Harga (Price Change %)
+Melihat seberapa ekstrim perubahan persentase harga dalam periode tertentu.
+
+| Harian (Daily) | Bulanan (Monthly) | Kuartalan (Quarterly) |
+| :---: | :---: | :---: |
+| ![Daily Change](price_change/perubahan_harian.png) | ![Monthly Change](price_change/perubahan_bulanan.png) | ![Quarterly Change](price_change/perubahan_kuartalan.png) |
 
 > **Insight Utama:**
-> * **Bitcoin vs Nasdaq:** Terlihat korelasi positif yang semakin menguat pada timeframe Bulanan dibandingkan Harian.
-> * **Bitcoin vs Suku Bunga AS:** Konsisten menunjukkan korelasi negatif ketika Dolar menguat, Bitcoin cenderung melemah.
-> * **Bitcoin & Rupiah:** Dampak terlihat lebih signifikan pada data Kuartalan, memiliki korelasi negatif yang tertinggi. Jadi ketika Bitcoin NAIK mata uang Rupiah akan TURUN. Begitu juga sebaliknya, Apabila Bitcoin TURUN, maka Rupiah akan NAIK
+> * **Timeframe:** Analisis pada timeframe **Kuartalan** memberikan sinyal makroekonomi yang lebih bersih dibandingkan data harian yang penuh volatilitas jangka pendek.
+> * **Korelasi:** Bitcoin memiliki korelasi positif yang kuat dengan pasar saham teknologi (Nasdaq) dan korelasi negatif terhadap kekuatan Dolar AS (DXY) serta nilai tukar USD/IDR.
 
 ## Kontributor
 * **Rafael Hartono** (166)
